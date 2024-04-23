@@ -1,0 +1,20 @@
+setup
+- npm i @nestjs/config @nestjs/typeorm typeorm mysql2 dotenv
+- create docker compose -> docker-compose up
+- nest g module database
+- nest g resource items
+
+Migrations DB
+- buat typeOrmConfig
+- setting folder migrations
+- enhance package.json
+    "typeorm": "ts-node ./node_modules/typeorm/cli",
+    "typeorm:create-migration": "npm run typeorm -- migration:create ./migrations/$npm_config_name",
+    "typeorm:run-migrations": "npm run typeorm migration:run -- -d ./typeOrm.config.ts",
+    "typeorm:revert-migrations": "npm run typeorm migration:revert -- -d ./typeOrm.config.ts"
+
+- command untuk bikin migrations file
+    npm run typeorm:create-migration --name=PublicItems
+
+
+typeorm migration:run -- -d path-to-datasource-config
